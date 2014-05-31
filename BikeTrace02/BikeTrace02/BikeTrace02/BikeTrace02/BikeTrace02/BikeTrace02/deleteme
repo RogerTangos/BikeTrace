@@ -1,0 +1,24 @@
+
+Alloc CrumbPath
+
+self.crumbs = [[CrumbPath alloc] initWithCenterCoordinate:newLocation.coordinate];
+            [mkMapView addOverlay:crumbs];
+            
+            
+for (dataPoint dp){
+
+MKMapRect updateRect = [crumbs addCoordinate: dp.location.coordinate];
+
+
+
+
+if (mapRectangleis there then){
+
+get the zoomscale
+get the lineWidth at zoom
+and updatethe rectangle with the right line width
+
+}
+
+
+}

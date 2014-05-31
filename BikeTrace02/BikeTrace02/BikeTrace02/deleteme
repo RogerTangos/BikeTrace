@@ -1,0 +1,71 @@
+
+# pragma mark - breadcrumbs
+- (void) locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+        
+    // auto-locate when the MapView is first created
+    if(self.autoLocateExecuted == NO & newLocation.horizontalAccuracy < 10){
+        MKCoordinateRegion mapRegion;   
+        mapRegion.center = newLocation.coordinate;
+        mapRegion.span.latitudeDelta = .01;
+        mapRegion.span.longitudeDelta = .01;
+        self.autoLocateExecuted = YES;
+        
+        [self.mkMapView setRegion:mapRegion animated: YES];
+    }
+    
+    
+    if ((tracking)
+        &&
+        (oldLocation.coordinate.latitude != newLocation.coordinate.latitude) &&
+        (oldLocation.coordinate.longitude != newLocation.coordinate.longitude))
+    { 
+        //create crumbs and add them to the map if they weren't there already
+        if(!crumbs) {
+            self.crumbs = [[CrumbPath alloc] initWithCenterCoordinate:newLocation.coordinate];
+            [mkMapView addOverlay:crumbs];
+            
+            
+            self.ride = [rideDirectory newRide];
+            
+            self.motionManager = [[CMMotionManager alloc] init];
+            
+            [motionManager startDeviceMotionUpdates];
+            
+            motionManager.showsDeviceMovementDisplay = YES;
+            motionManager.deviceMotionUpdateInterval = 1.0 / 60.0;
+            
+            }
+        else {
+            
+            // unfortuantely CMDeviceMotion is always nil in the simulator.  Will need to test this on an actual device :-/
+            CMDeviceMotion *dm =motionManager.deviceMotion;
+            DataPoint *dp = [[DataPoint alloc] initWithData:newLocation andDeviceMotion:dm];
+            [self.ride.dataPointList addObject:dp];
+            
+            MKMapRect updateRect = [crumbs addCoordinate:newLocation.coordinate];
+            
+            if (!MKMapRectIsNull(updateRect)){
+                
+                //get the current map's zoom
+                MKZoomScale currentZoomScale = (CGFloat)(mkMapView.bounds.size.width / mkMapView.visibleMapRect.size.width);
+                
+                //get the current lineWidth at the zoom
+                CGFloat lineWidth = MKRoadWidthAtZoomScale(currentZoomScale);
+                updateRect = MKMapRectInset(updateRect, -lineWidth, -lineWidth);
+                
+                //have the overlay update *just* the updated area
+                [crumbView setNeedsDisplayInMapRect:updateRect];
+            }
+        }
+    
+    }
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    if (!crumbView)
+    {
+        crumbView = [[CrumbPathView alloc] initWithOverlay:overlay];
+    }
+    return crumbView;
+}

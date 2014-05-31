@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		946A736C15CF3ABA00D3E1DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946A736B15CF3ABA00D3E1DF /* CoreLocation.framework */; };
+		946A736E15CF3E7800D3E1DF /* deleteme in Resources */ = {isa = PBXBuildFile; fileRef = 946A736D15CF3E7800D3E1DF /* deleteme */; };
+		946A737015D07EBE00D3E1DF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946A736F15D07EBE00D3E1DF /* CoreMotion.framework */; };
+		946A737B15D0822700D3E1DF /* RideDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A737A15D0822700D3E1DF /* RideDirectory.m */; };
+		946A737E15D0822F00D3E1DF /* Ride.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A737D15D0822F00D3E1DF /* Ride.m */; };
+		946A738615D0852E00D3E1DF /* DataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A738515D0852E00D3E1DF /* DataPoint.m */; };
+		94C3450C15CC9109001B9100 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3450A15CC9109001B9100 /* MapViewController.m */; };
+		94C3450D15CC9109001B9100 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94C3450B15CC9109001B9100 /* MapViewController.xib */; };
+		94C3451A15CDAED7001B9100 /* CrumbPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3451915CDAED7001B9100 /* CrumbPath.m */; };
+		94C3452415CF1DC1001B9100 /* CrumbPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3452315CF1DC1001B9100 /* CrumbPathView.m */; };
+		94E8CAB915C9CDF90040784E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CAB815C9CDF90040784E /* UIKit.framework */; };
+		94E8CABB15C9CDF90040784E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CABA15C9CDF90040784E /* Foundation.framework */; };
+		94E8CABD15C9CDF90040784E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CABC15C9CDF90040784E /* CoreGraphics.framework */; };
+		94E8CAC315C9CDF90040784E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94E8CAC115C9CDF90040784E /* InfoPlist.strings */; };
+		94E8CAC515C9CDF90040784E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8CAC415C9CDF90040784E /* main.m */; };
+		94E8CAC915C9CDF90040784E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8CAC815C9CDF90040784E /* AppDelegate.m */; };
+		94E8CACC15C9CDF90040784E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8CACB15C9CDF90040784E /* MainViewController.m */; };
+		94E8CACF15C9CDF90040784E /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8CACE15C9CDF90040784E /* FlipsideViewController.m */; };
+		94E8CAD215C9CDF90040784E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E8CAD015C9CDF90040784E /* MainViewController.xib */; };
+		94E8CAD515C9CDF90040784E /* FlipsideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E8CAD315C9CDF90040784E /* FlipsideViewController.xib */; };
+		94E8CADD15C9CDFA0040784E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CADC15C9CDFA0040784E /* SenTestingKit.framework */; };
+		94E8CADE15C9CDFA0040784E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CAB815C9CDF90040784E /* UIKit.framework */; };
+		94E8CADF15C9CDFA0040784E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CABA15C9CDF90040784E /* Foundation.framework */; };
+		94E8CAE715C9CDFA0040784E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94E8CAE515C9CDFA0040784E /* InfoPlist.strings */; };
+		94E8CAEA15C9CDFA0040784E /* BikeTrace02Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8CAE915C9CDFA0040784E /* BikeTrace02Tests.m */; };
+		94E8CAFA15C9DAF60040784E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E8CAF915C9DAF60040784E /* MapKit.framework */; };
+		94E8CB2E15CB407F0040784E /* OldRideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8CB2C15CB407F0040784E /* OldRideTableViewController.m */; };
+		94E8CB2F15CB407F0040784E /* OldRideTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94E8CB2D15CB407F0040784E /* OldRideTableViewController.xib */; };
+		94EA87D015D339A600D953BC /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EA87CF15D339A600D953BC /* SearchResult.m */; };
+		94EA87EC15D5F2CA00D953BC /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EA87EA15D5F2CA00D953BC /* DetailViewController.m */; };
+		94EA87ED15D5F2CA00D953BC /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94EA87EB15D5F2CA00D953BC /* DetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94E8CAE015C9CDFA0040784E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E8CAAB15C9CDF90040784E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94E8CAB315C9CDF90040784E;
+			remoteInfo = BikeTrace02;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		946A736B15CF3ABA00D3E1DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		946A736D15CF3E7800D3E1DF /* deleteme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = deleteme; sourceTree = "<group>"; };
+		946A736F15D07EBE00D3E1DF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		946A737915D0822700D3E1DF /* RideDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RideDirectory.h; sourceTree = "<group>"; };
+		946A737A15D0822700D3E1DF /* RideDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RideDirectory.m; sourceTree = "<group>"; };
+		946A737C15D0822F00D3E1DF /* Ride.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ride.h; sourceTree = "<group>"; };
+		946A737D15D0822F00D3E1DF /* Ride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ride.m; sourceTree = "<group>"; };
+		946A738415D0852E00D3E1DF /* DataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPoint.h; sourceTree = "<group>"; };
+		946A738515D0852E00D3E1DF /* DataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPoint.m; sourceTree = "<group>"; };
+		94C3450915CC9109001B9100 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		94C3450A15CC9109001B9100 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		94C3450B15CC9109001B9100 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		94C3451815CDAED7001B9100 /* CrumbPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPath.h; sourceTree = "<group>"; };
+		94C3451915CDAED7001B9100 /* CrumbPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPath.m; sourceTree = "<group>"; };
+		94C3452215CF1DC1001B9100 /* CrumbPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrumbPathView.h; sourceTree = "<group>"; };
+		94C3452315CF1DC1001B9100 /* CrumbPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrumbPathView.m; sourceTree = "<group>"; };
+		94E8CAB415C9CDF90040784E /* BikeTrace02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTrace02.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E8CAB815C9CDF90040784E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		94E8CABA15C9CDF90040784E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		94E8CABC15C9CDF90040784E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		94E8CAC015C9CDF90040784E /* BikeTrace02-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BikeTrace02-Info.plist"; sourceTree = "<group>"; };
+		94E8CAC215C9CDF90040784E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94E8CAC415C9CDF90040784E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		94E8CAC615C9CDF90040784E /* BikeTrace02-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BikeTrace02-Prefix.pch"; sourceTree = "<group>"; };
+		94E8CAC715C9CDF90040784E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94E8CAC815C9CDF90040784E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94E8CACA15C9CDF90040784E /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		94E8CACB15C9CDF90040784E /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		94E8CACD15C9CDF90040784E /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		94E8CACE15C9CDF90040784E /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		94E8CAD115C9CDF90040784E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController.xib; sourceTree = "<group>"; };
+		94E8CAD415C9CDF90040784E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FlipsideViewController.xib; sourceTree = "<group>"; };
+		94E8CADB15C9CDFA0040784E /* BikeTrace02Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTrace02Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E8CADC15C9CDFA0040784E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		94E8CAE415C9CDFA0040784E /* BikeTrace02Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BikeTrace02Tests-Info.plist"; sourceTree = "<group>"; };
+		94E8CAE615C9CDFA0040784E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94E8CAE815C9CDFA0040784E /* BikeTrace02Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BikeTrace02Tests.h; sourceTree = "<group>"; };
+		94E8CAE915C9CDFA0040784E /* BikeTrace02Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BikeTrace02Tests.m; sourceTree = "<group>"; };
+		94E8CAF915C9DAF60040784E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		94E8CB2B15CB407F0040784E /* OldRideTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldRideTableViewController.h; sourceTree = "<group>"; };
+		94E8CB2C15CB407F0040784E /* OldRideTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldRideTableViewController.m; sourceTree = "<group>"; };
+		94E8CB2D15CB407F0040784E /* OldRideTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OldRideTableViewController.xib; sourceTree = "<group>"; };
+		94EA87CE15D339A600D953BC /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		94EA87CF15D339A600D953BC /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		94EA87E915D5F2CA00D953BC /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		94EA87EA15D5F2CA00D953BC /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		94EA87EB15D5F2CA00D953BC /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94E8CAB115C9CDF90040784E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				946A737015D07EBE00D3E1DF /* CoreMotion.framework in Frameworks */,
+				946A736C15CF3ABA00D3E1DF /* CoreLocation.framework in Frameworks */,
+				94E8CAFA15C9DAF60040784E /* MapKit.framework in Frameworks */,
+				94E8CAB915C9CDF90040784E /* UIKit.framework in Frameworks */,
+				94E8CABB15C9CDF90040784E /* Foundation.framework in Frameworks */,
+				94E8CABD15C9CDF90040784E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E8CAD715C9CDFA0040784E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E8CADD15C9CDFA0040784E /* SenTestingKit.framework in Frameworks */,
+				94E8CADE15C9CDFA0040784E /* UIKit.framework in Frameworks */,
+				94E8CADF15C9CDFA0040784E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		946A737815D0821A00D3E1DF /* Rides */ = {
+			isa = PBXGroup;
+			children = (
+				946A737915D0822700D3E1DF /* RideDirectory.h */,
+				946A737A15D0822700D3E1DF /* RideDirectory.m */,
+				946A737C15D0822F00D3E1DF /* Ride.h */,
+				946A737D15D0822F00D3E1DF /* Ride.m */,
+				946A738415D0852E00D3E1DF /* DataPoint.h */,
+				946A738515D0852E00D3E1DF /* DataPoint.m */,
+			);
+			name = Rides;
+			sourceTree = "<group>";
+		};
+		94C3450815CC90FA001B9100 /* MapVC */ = {
+			isa = PBXGroup;
+			children = (
+				94C3450915CC9109001B9100 /* MapViewController.h */,
+				94C3450A15CC9109001B9100 /* MapViewController.m */,
+				94C3450B15CC9109001B9100 /* MapViewController.xib */,
+				94EA87CE15D339A600D953BC /* SearchResult.h */,
+				94EA87CF15D339A600D953BC /* SearchResult.m */,
+			);
+			name = MapVC;
+			sourceTree = "<group>";
+		};
+		94C3451215CC9E6D001B9100 /* FlipsideVC */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CACD15C9CDF90040784E /* FlipsideViewController.h */,
+				94E8CACE15C9CDF90040784E /* FlipsideViewController.m */,
+				94E8CAD315C9CDF90040784E /* FlipsideViewController.xib */,
+			);
+			name = FlipsideVC;
+			sourceTree = "<group>";
+		};
+		94C3451715CDAEBD001B9100 /* Crumbs */ = {
+			isa = PBXGroup;
+			children = (
+				94C3451815CDAED7001B9100 /* CrumbPath.h */,
+				94C3451915CDAED7001B9100 /* CrumbPath.m */,
+				94C3452215CF1DC1001B9100 /* CrumbPathView.h */,
+				94C3452315CF1DC1001B9100 /* CrumbPathView.m */,
+			);
+			name = Crumbs;
+			sourceTree = "<group>";
+		};
+		94E8CAA915C9CDF90040784E = {
+			isa = PBXGroup;
+			children = (
+				94E8CABE15C9CDF90040784E /* BikeTrace02 */,
+				94E8CAE215C9CDFA0040784E /* BikeTrace02Tests */,
+				94E8CAB715C9CDF90040784E /* Frameworks */,
+				94E8CAB515C9CDF90040784E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94E8CAB515C9CDF90040784E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CAB415C9CDF90040784E /* BikeTrace02.app */,
+				94E8CADB15C9CDFA0040784E /* BikeTrace02Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94E8CAB715C9CDF90040784E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				946A736F15D07EBE00D3E1DF /* CoreMotion.framework */,
+				946A736B15CF3ABA00D3E1DF /* CoreLocation.framework */,
+				94E8CAF915C9DAF60040784E /* MapKit.framework */,
+				94E8CAB815C9CDF90040784E /* UIKit.framework */,
+				94E8CABA15C9CDF90040784E /* Foundation.framework */,
+				94E8CABC15C9CDF90040784E /* CoreGraphics.framework */,
+				94E8CADC15C9CDFA0040784E /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94E8CABE15C9CDF90040784E /* BikeTrace02 */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CB2515CB402D0040784E /* OldRideTableVC */,
+				94EA87E815D5F2A900D953BC /* DetailVC */,
+				946A736D15CF3E7800D3E1DF /* deleteme */,
+				94C3450815CC90FA001B9100 /* MapVC */,
+				94C3451215CC9E6D001B9100 /* FlipsideVC */,
+				94E8CAF315C9CFA70040784E /* MainVC */,
+				946A737815D0821A00D3E1DF /* Rides */,
+				94C3451715CDAEBD001B9100 /* Crumbs */,
+				94E8CAC715C9CDF90040784E /* AppDelegate.h */,
+				94E8CAC815C9CDF90040784E /* AppDelegate.m */,
+				94E8CABF15C9CDF90040784E /* Supporting Files */,
+			);
+			path = BikeTrace02;
+			sourceTree = "<group>";
+		};
+		94E8CABF15C9CDF90040784E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CAC015C9CDF90040784E /* BikeTrace02-Info.plist */,
+				94E8CAC115C9CDF90040784E /* InfoPlist.strings */,
+				94E8CAC415C9CDF90040784E /* main.m */,
+				94E8CAC615C9CDF90040784E /* BikeTrace02-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94E8CAE215C9CDFA0040784E /* BikeTrace02Tests */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CAE815C9CDFA0040784E /* BikeTrace02Tests.h */,
+				94E8CAE915C9CDFA0040784E /* BikeTrace02Tests.m */,
+				94E8CAE315C9CDFA0040784E /* Supporting Files */,
+			);
+			path = BikeTrace02Tests;
+			sourceTree = "<group>";
+		};
+		94E8CAE315C9CDFA0040784E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CAE415C9CDFA0040784E /* BikeTrace02Tests-Info.plist */,
+				94E8CAE515C9CDFA0040784E /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94E8CAF315C9CFA70040784E /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CACA15C9CDF90040784E /* MainViewController.h */,
+				94E8CACB15C9CDF90040784E /* MainViewController.m */,
+				94E8CAD015C9CDF90040784E /* MainViewController.xib */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+		94E8CB2515CB402D0040784E /* OldRideTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				94E8CB2B15CB407F0040784E /* OldRideTableViewController.h */,
+				94E8CB2C15CB407F0040784E /* OldRideTableViewController.m */,
+				94E8CB2D15CB407F0040784E /* OldRideTableViewController.xib */,
+			);
+			name = OldRideTableVC;
+			sourceTree = "<group>";
+		};
+		94EA87E815D5F2A900D953BC /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				94EA87E915D5F2CA00D953BC /* DetailViewController.h */,
+				94EA87EA15D5F2CA00D953BC /* DetailViewController.m */,
+				94EA87EB15D5F2CA00D953BC /* DetailViewController.xib */,
+			);
+			name = DetailVC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94E8CAB315C9CDF90040784E /* BikeTrace02 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94E8CAED15C9CDFA0040784E /* Build configuration list for PBXNativeTarget "BikeTrace02" */;
+			buildPhases = (
+				94E8CAB015C9CDF90040784E /* Sources */,
+				94E8CAB115C9CDF90040784E /* Frameworks */,
+				94E8CAB215C9CDF90040784E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BikeTrace02;
+			productName = BikeTrace02;
+			productReference = 94E8CAB415C9CDF90040784E /* BikeTrace02.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94E8CADA15C9CDFA0040784E /* BikeTrace02Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94E8CAF015C9CDFA0040784E /* Build configuration list for PBXNativeTarget "BikeTrace02Tests" */;
+			buildPhases = (
+				94E8CAD615C9CDFA0040784E /* Sources */,
+				94E8CAD715C9CDFA0040784E /* Frameworks */,
+				94E8CAD815C9CDFA0040784E /* Resources */,
+				94E8CAD915C9CDFA0040784E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94E8CAE115C9CDFA0040784E /* PBXTargetDependency */,
+			);
+			name = BikeTrace02Tests;
+			productName = BikeTrace02Tests;
+			productReference = 94E8CADB15C9CDFA0040784E /* BikeTrace02Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94E8CAAB15C9CDF90040784E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 94E8CAAE15C9CDF90040784E /* Build configuration list for PBXProject "BikeTrace02" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 94E8CAA915C9CDF90040784E;
+			productRefGroup = 94E8CAB515C9CDF90040784E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94E8CAB315C9CDF90040784E /* BikeTrace02 */,
+				94E8CADA15C9CDFA0040784E /* BikeTrace02Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94E8CAB215C9CDF90040784E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E8CAC315C9CDF90040784E /* InfoPlist.strings in Resources */,
+				94E8CAD215C9CDF90040784E /* MainViewController.xib in Resources */,
+				94E8CAD515C9CDF90040784E /* FlipsideViewController.xib in Resources */,
+				94E8CB2F15CB407F0040784E /* OldRideTableViewController.xib in Resources */,
+				94C3450D15CC9109001B9100 /* MapViewController.xib in Resources */,
+				946A736E15CF3E7800D3E1DF /* deleteme in Resources */,
+				94EA87ED15D5F2CA00D953BC /* DetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E8CAD815C9CDFA0040784E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E8CAE715C9CDFA0040784E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		94E8CAD915C9CDFA0040784E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94E8CAB015C9CDF90040784E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E8CAC515C9CDF90040784E /* main.m in Sources */,
+				94E8CAC915C9CDF90040784E /* AppDelegate.m in Sources */,
+				94E8CACC15C9CDF90040784E /* MainViewController.m in Sources */,
+				94E8CACF15C9CDF90040784E /* FlipsideViewController.m in Sources */,
+				94E8CB2E15CB407F0040784E /* OldRideTableViewController.m in Sources */,
+				94C3450C15CC9109001B9100 /* MapViewController.m in Sources */,
+				94C3451A15CDAED7001B9100 /* CrumbPath.m in Sources */,
+				94C3452415CF1DC1001B9100 /* CrumbPathView.m in Sources */,
+				946A737B15D0822700D3E1DF /* RideDirectory.m in Sources */,
+				946A737E15D0822F00D3E1DF /* Ride.m in Sources */,
+				946A738615D0852E00D3E1DF /* DataPoint.m in Sources */,
+				94EA87D015D339A600D953BC /* SearchResult.m in Sources */,
+				94EA87EC15D5F2CA00D953BC /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E8CAD615C9CDFA0040784E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E8CAEA15C9CDFA0040784E /* BikeTrace02Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94E8CAE115C9CDFA0040784E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94E8CAB315C9CDF90040784E /* BikeTrace02 */;
+			targetProxy = 94E8CAE015C9CDFA0040784E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		94E8CAC115C9CDF90040784E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94E8CAC215C9CDF90040784E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		94E8CAD015C9CDF90040784E /* MainViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94E8CAD115C9CDF90040784E /* en */,
+			);
+			name = MainViewController.xib;
+			sourceTree = "<group>";
+		};
+		94E8CAD315C9CDF90040784E /* FlipsideViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94E8CAD415C9CDF90040784E /* en */,
+			);
+			name = FlipsideViewController.xib;
+			sourceTree = "<group>";
+		};
+		94E8CAE515C9CDFA0040784E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94E8CAE615C9CDFA0040784E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94E8CAEB15C9CDFA0040784E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		94E8CAEC15C9CDFA0040784E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94E8CAEE15C9CDFA0040784E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BikeTrace02/BikeTrace02-Prefix.pch";
+				INFOPLIST_FILE = "BikeTrace02/BikeTrace02-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		94E8CAEF15C9CDFA0040784E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BikeTrace02/BikeTrace02-Prefix.pch";
+				INFOPLIST_FILE = "BikeTrace02/BikeTrace02-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		94E8CAF115C9CDFA0040784E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BikeTrace02.app/BikeTrace02";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BikeTrace02/BikeTrace02-Prefix.pch";
+				INFOPLIST_FILE = "BikeTrace02Tests/BikeTrace02Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		94E8CAF215C9CDFA0040784E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BikeTrace02.app/BikeTrace02";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BikeTrace02/BikeTrace02-Prefix.pch";
+				INFOPLIST_FILE = "BikeTrace02Tests/BikeTrace02Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94E8CAAE15C9CDF90040784E /* Build configuration list for PBXProject "BikeTrace02" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E8CAEB15C9CDFA0040784E /* Debug */,
+				94E8CAEC15C9CDFA0040784E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94E8CAED15C9CDFA0040784E /* Build configuration list for PBXNativeTarget "BikeTrace02" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E8CAEE15C9CDFA0040784E /* Debug */,
+				94E8CAEF15C9CDFA0040784E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94E8CAF015C9CDFA0040784E /* Build configuration list for PBXNativeTarget "BikeTrace02Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E8CAF115C9CDFA0040784E /* Debug */,
+				94E8CAF215C9CDFA0040784E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94E8CAAB15C9CDF90040784E /* Project object */;
+}
