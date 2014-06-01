@@ -180,13 +180,23 @@ static sqlite3 *database = nil;
                                        ];
     [theRequest setHTTPMethod:@"POST"];
     
-    // format and post data;
-    NSString *post = [NSString stringWithFormat:@"jsonData=%s", "jsonDataGoesHere"];
+    
+    NSMutableArray * dataListForPost = [[NSMutableArray alloc] init];
+    for (DataPoint * dp in dataPointList){
+        [dataListForPost addObject:[dp toNSDictionaryWithStrings]];
+    }
     
     
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding];
-    [theRequest setHTTPBody:postData];
+//    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                    @"Value1", @"Key1",
+//                                    @"Value2", @"Key2",
+//                                    nil];
+    NSError *error;
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dataListForPost
+                                                       options:NSJSONWritingPrettyPrinted error:&error];
+    [theRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
+    [theRequest setHTTPBody:jsonData];
     
     [NSURLConnection sendAsynchronousRequest:theRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
@@ -221,7 +231,8 @@ static sqlite3 *database = nil;
                               dp.location.speed, 
                               dp.location.course, 
                               self.idNum];
-            
+
+        NSLog(@"%@", insertSQL);
         
 //        NSLog(@"insertSQL Statement:%@",insertSQL);
         

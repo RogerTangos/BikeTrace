@@ -22,7 +22,7 @@
 @property NSDate * date;
 
 -(id) initWithData:(CLLocation *)dLocation andDeviceMotion:(CMDeviceMotion *)dMotion;
-
+- (NSMutableDictionary *)toNSDictionaryWithStrings;
 
 
 
