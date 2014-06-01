@@ -10,8 +10,8 @@
                 <outlet property="autoLocateButton" destination="47" id="52"/>
                 <outlet property="backgroundButton" destination="66" id="67"/>
                 <outlet property="bikeRouteButton" destination="50" id="53"/>
+                <outlet property="networkButton" destination="Vyc-nJ-zNS" id="CPq-Jo-4RG"/>
                 <outlet property="view" destination="40" id="41"/>
-                <outletCollection property="networkButton" destination="Vyc-nJ-zNS" id="7r2-4U-ymo"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

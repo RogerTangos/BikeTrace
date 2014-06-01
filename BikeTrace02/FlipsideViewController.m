@@ -73,9 +73,9 @@
 
 - (IBAction)networkDisplay:(id)sender {
     if(self.networkButton.on){
-        NSLog(@"Network button was already on");
+        NSLog(@"turn button on");
     } else {
-        NSLog(@"Network Button was already off");
+        NSLog(@"turn button off");
     }
 }
 

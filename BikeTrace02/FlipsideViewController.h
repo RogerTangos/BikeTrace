@@ -24,7 +24,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *autoLocateButton;
 @property (strong, nonatomic) IBOutlet UISwitch *bikeRouteButton;
 @property (strong, nonatomic) IBOutlet UISwitch *backgroundButton;
-@property (strong, nonatomic) IBOutlet UISwitch *networkButton;
+@property (strong, nonatomic) IBOutlet UISwitch * networkButton;
 
 - (IBAction)done:(id)sender;
 - (IBAction)autoLocate:(id)sender;
