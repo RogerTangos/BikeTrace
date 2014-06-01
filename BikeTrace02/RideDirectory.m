@@ -12,11 +12,13 @@ static sqlite3 *database = nil;
 
 @implementation RideDirectory
 @synthesize rideList;
+@synthesize networkRideList;
 
 -(id) initializeArray: (NSArray *) array {    
     if(self){
         self.rideList = [[NSMutableArray alloc] initWithArray:array];
-    } 
+        
+    }
     
     return self;    
 }
@@ -24,10 +26,11 @@ static sqlite3 *database = nil;
 -(id) initialize {
     if(self){
         self.rideList = [[NSMutableArray alloc] init];
+        self.networkRideList = [[NSMutableArray alloc] init];
     }
-
     return self;
 }
+
 
 
 //this should only EVER be called from the database.
@@ -66,6 +69,16 @@ static sqlite3 *database = nil;
 -(id) returnAllRides {
     return rideList;
 }
+
+-(id) returnNetworkRides {
+    return networkRideList;
+}
+
+#pragma mark - Network
+-(void) loadNearbyRides:(CLLocation *) currentLocation {
+    NSLog(@"loadNetworkRides in RideDirectory.m called");
+}
+
 
 #pragma mark - SearchWithRange
 -(id) searchWithRange:(NSString *)searchTerm {

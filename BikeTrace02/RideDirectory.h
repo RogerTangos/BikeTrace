@@ -13,9 +13,11 @@
 
 @interface RideDirectory : NSObject {
     NSMutableArray * rideList;
+    NSMutableArray * networkRideList;
 }
 
 @property (readwrite, strong) NSMutableArray * rideList;
+@property (readwrite, strong) NSMutableArray * networkRideList;
 
 -(id) initializeArray: (NSArray *) array;
 -(id) initialize;
@@ -23,6 +25,9 @@
 -(Ride *) newRideWithoutAdd;
 
 -(id) searchWithRange:(NSString *)searchTerm;
+
+// network
+- (void) loadNetworkRides:(CLLocation *)currentLocation;
 
 //db
 - (void) copyDatabaseIfNeeded;

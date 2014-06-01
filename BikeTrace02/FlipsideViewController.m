@@ -18,6 +18,7 @@
 @synthesize autoLocateButton = _autoLocateButton;
 @synthesize bikeRouteButton = _bikeRouteButton;
 @synthesize backgroundButton = _backgroundButton;
+@synthesize networkButton = _networkButton;
 
 - (void)viewDidLoad
 {
@@ -69,5 +70,16 @@
         [self.delegate turnOnBackgroundUpdates:NO];
     }
 }
+
+- (IBAction)networkDisplay:(id)sender {
+    if(self.networkButton.on){
+        NSLog(@"Network button was already on");
+    } else {
+        NSLog(@"Network Button was already off");
+    }
+}
+
+
+
 
 @end

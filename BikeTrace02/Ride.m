@@ -180,17 +180,12 @@ static sqlite3 *database = nil;
                                        ];
     [theRequest setHTTPMethod:@"POST"];
     
-    
+    // create a list of data points with dictionary objects and string keys for sending to the server.
     NSMutableArray * dataListForPost = [[NSMutableArray alloc] init];
     for (DataPoint * dp in dataPointList){
         [dataListForPost addObject:[dp toNSDictionaryWithStrings]];
     }
     
-    
-//    NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-//                                    @"Value1", @"Key1",
-//                                    @"Value2", @"Key2",
-//                                    nil];
     NSError *error;
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dataListForPost
                                                        options:NSJSONWritingPrettyPrinted error:&error];
@@ -200,7 +195,7 @@ static sqlite3 *database = nil;
     
     [NSURLConnection sendAsynchronousRequest:theRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-            // do something with error
+            NSLog(@"%@", [connectionError localizedDescription]);
         } else {
             NSString *responseText = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             NSLog(@"Response: %@", responseText);
@@ -232,8 +227,6 @@ static sqlite3 *database = nil;
                               dp.location.course, 
                               self.idNum];
 
-        NSLog(@"%@", insertSQL);
-        
 //        NSLog(@"insertSQL Statement:%@",insertSQL);
         
         const char *insert_stmt = [insertSQL UTF8String]; 
@@ -259,5 +252,15 @@ static sqlite3 *database = nil;
 - (void) deleteFromSQL:(NSString *)dbPath andDataPoint:(DataPoint *)dp{
     
 }
+//
+//- (NSMutableDictionary *) toNSDictionaryWithStrings {
+//     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+//    
+//    NSString *courseString = [NSString stringWithFormat:@"%lf", location.course];
+//    
+//    [dictionary setValue:latitudeString forKey:@"latitude"];
+//    
+//    return dictionary;
+//}
 
 @end

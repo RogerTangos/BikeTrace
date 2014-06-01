@@ -44,5 +44,6 @@
 -(void) insertIntoSQL:(NSString *)dbPath;
 -(void) deleteFromSQL:(NSString *)dbPath andDataPoint:(DataPoint *)dp;
 -(void) postToServer;
+//- (NSMutableDictionary *)toNSDictionaryWithStrings;
 
 @end
