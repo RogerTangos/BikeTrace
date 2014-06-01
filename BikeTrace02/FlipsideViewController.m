@@ -31,6 +31,7 @@
     [self setAutoLocateButton:self.autoLocateButton];
     [self setBikeRouteButton:self.bikeRouteButton];
     [self setBackgroundButton:nil];
+    [self setNetworkButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -74,8 +75,9 @@
 - (IBAction)networkDisplay:(id)sender {
     if(self.networkButton.on){
         NSLog(@"turn button on");
+        [self.delegate callMapVcNetworking:YES];
     } else {
-        NSLog(@"turn button off");
+        [self.delegate callMapVcNetworking:NO];
     }
 }
 

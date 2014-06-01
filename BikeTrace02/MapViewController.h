@@ -94,5 +94,7 @@
 - (void) queryGoogleMaps: (NSString *) googleType;
 - (void) queryGooglePlaces;
 
+- (void) callMapVcNetworking:(BOOL)network;
+
 
 @end

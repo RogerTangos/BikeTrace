@@ -231,6 +231,13 @@
     return crumbView;
 }
 
+- (void) overlayNetworkrides{
+    NSLog(@"OverlayNetworkRides called");
+    
+    [self.rideDirectory loadNetworkRides:self.mkMapView.userLocation.location];
+    
+}
+
 
 #pragma mark - Search Bar
 
@@ -471,9 +478,10 @@
 
 
 # pragma mark - RESTful Functions
-- (void) sendDataToServer:(int)queryType{
+- (void)callMapVcNetworking:(BOOL)network{
 //may return json/mutablearray in future
-    
+    NSLog(@"MapVCNetworking Called");
+    [self overlayNetworkrides];
 }
 
 

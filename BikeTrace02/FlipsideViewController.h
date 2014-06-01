@@ -15,6 +15,7 @@
 - (void) turnOnAutolocate:(BOOL)autolocateSent;
 - (void) turnOnBikeRoute:(BOOL)bikeRouteSent;
 - (void) turnOnBackgroundUpdates:(BOOL)background;
+- (void) callMapVcNetworking:(BOOL)network;
 
 @end
 
