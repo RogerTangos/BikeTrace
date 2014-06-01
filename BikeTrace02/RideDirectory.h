@@ -27,7 +27,8 @@
 -(id) searchWithRange:(NSString *)searchTerm;
 
 // network
-- (void) loadNetworkRides:(CLLocation *)currentLocation;
+- (NSData *) loadNetworkRides:(CLLocation *)currentLocation;
+- (NSArray *) jsonFromData:(NSData *) data;
 
 //db
 - (void) copyDatabaseIfNeeded;

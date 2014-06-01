@@ -234,10 +234,20 @@
 - (void) overlayNetworkrides{
     NSLog(@"OverlayNetworkRides called");
     
-    [self.rideDirectory loadNetworkRides:self.mkMapView.userLocation.location];
+    NSData * data = [[NSData alloc]init];
+    data = [self.rideDirectory loadNetworkRides:self.mkMapView.userLocation.location];
+    
+    NSArray * dataPointArray = [[NSArray alloc]init];
+    dataPointArray = [self.rideDirectory jsonFromData:data];
+    
+    NSLog(@"%@", dataPointArray);
+    
+//    make rides from list
+//    make data points for each ride
+    
+
     
 }
-
 
 #pragma mark - Search Bar
 

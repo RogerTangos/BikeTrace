@@ -75,10 +75,18 @@ static sqlite3 *database = nil;
 }
 
 #pragma mark - Network
--(void) loadNetworkRides:(CLLocation *) currentLocation {
-    
+
+
+-(NSData *) loadNetworkRides:(CLLocation *) currentLocation{
     
     NSLog(@"loadNearbyRides in RideDirectory.m called");
+    
+    NSString *latitude = [[NSString alloc] initWithFormat:@"%g", currentLocation.coordinate.latitude];
+    NSString *longitude = [[NSString alloc] initWithFormat:@"%g", currentLocation.coordinate.longitude];
+    
+    NSLog(@"latitude: %@", latitude);
+    NSLog(@"longitude: %@", longitude);
+   
     
     NSString *queryString = @"http://ec2-107-22-150-242.compute-1.amazonaws.com/retrieveNearby.php";
     NSMutableURLRequest *theRequest = [NSMutableURLRequest
@@ -88,29 +96,36 @@ static sqlite3 *database = nil;
     [theRequest setHTTPMethod:@"POST"];
     
     // format and post data;
-    NSString *post = [NSString stringWithFormat:@"latitude=%s&longitude=%s", "37.7014", "-122.471"];
+    NSString *post = [NSString stringWithFormat:@"latitude=%@&longitude=%@", latitude, longitude];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding];
     [theRequest setHTTPBody:postData];
     
+    NSError * error = [[NSError alloc] init];
+    NSURLResponse * response = [[NSURLResponse alloc] init];
+    NSData * data = [[NSData alloc] init];
     
-    [NSURLConnection sendAsynchronousRequest:theRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (connectionError) {
-            // do something with error
-        } else {
-            NSString *responseText = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-            NSLog(@"Response: %@", responseText);
-            
-            NSString *newLineStr = @"\n";
-            responseText = [responseText stringByReplacingOccurrencesOfString:@"<br />" withString:newLineStr];
-            
-            NSLog(@"%@", responseText);
-            
-        }
-    }];
+    // wish this were asynch. Had torouble with method passing and had to rever to sync 2014-06-01 ARC
+    data = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
+    
+    return data;
+ 
+}
+
+-(NSArray *)jsonFromData:(NSData *)data {
+    // encode as string for debugging
+    //    NSString *responseText = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    //    NSString *newLineStr = @"\n";
+    //    responseText = [responseText stringByReplacingOccurrencesOfString:@"<br />" withString:newLineStr];
 
     
+    NSError * error = [[NSError alloc] init];
+    NSArray * parsedData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
+//    NSLog(@"%@", parsedData);
+    
+    return parsedData;
 }
+
 
 
 #pragma mark - SearchWithRange

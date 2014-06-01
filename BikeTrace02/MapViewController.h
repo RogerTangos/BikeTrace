@@ -96,5 +96,4 @@
 
 - (void) callMapVcNetworking:(BOOL)network;
 
-
 @end
