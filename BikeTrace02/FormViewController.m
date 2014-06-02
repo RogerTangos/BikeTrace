@@ -43,8 +43,8 @@
 
 - (IBAction)submit:(id)sender {
     NSLog(@"submit called");
-    NSString * latitude = @"37.3349";
-    NSString *longitude = @"-122.426";
+    NSString * latitude = @"37.7014";
+    NSString *longitude = @"-122.471";
     NSString *range = @".125";
     
      NSString *queryString = @"http://ec2-107-22-150-242.compute-1.amazonaws.com/retrieveNearby.php";

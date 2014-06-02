@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Title" id="43">
+                        <navigationItem title="Customize Map" id="43">
                             <barButtonItem key="leftBarButtonItem" systemItem="done" id="44">
                                 <connections>
                                     <action selector="done:" destination="-1" id="46"/>
