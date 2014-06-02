@@ -16,7 +16,12 @@
 
 @interface FormViewController : UIViewController
 @property (weak, nonatomic) id <FormViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UITextField *latitudeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *degreeLabel;
+@property (weak, nonatomic) IBOutlet UITextView *resultView;
 
 - (IBAction)done:(id)sender;
+- (IBAction)submit:(id)sender;
 
 @end
