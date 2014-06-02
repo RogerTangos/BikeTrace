@@ -158,7 +158,7 @@
 }
 
 
-# pragma mark - overlayAllRides (MuaHaHa!)
+# pragma mark - overlayAllRides
 
 - (void) overlayAllRides{
     
@@ -232,8 +232,9 @@
     return crumbView;
 }
 
-- (void) overlayNetworkrides{
-    NSLog(@"OverlayNetworkRides called");
+# pragma mark - Network Considerations
+- (void) gatherNetworkData{
+    NSLog(@"gatherNetworkData called");
     
     // get the data from the network, reverse engineer it, and populate the rideList
     NSData * data = [[NSData alloc]init];
@@ -243,8 +244,12 @@
     dataPointArray = [self.rideDirectory reverseEngineerPointDataToArr:dataPointArray];
     [self.rideDirectory createRidesFromNetworkReturnArray:dataPointArray];
     
-    // plot the rides
+}
 
+- (void) overlayNetworkRides{
+    NSLog(@"overlayNetworkRides called");
+    NSArray * networkRideList = self.rideDirectory.networkRideList;
+    
     
 }
 
@@ -490,7 +495,8 @@
 - (void)callMapVcNetworking:(BOOL)network{
 //may return json/mutablearray in future
     NSLog(@"MapVCNetworking Called");
-    [self overlayNetworkrides];
+    [self gatherNetworkData];
+    [self overlayNetworkRides];
 }
 
 

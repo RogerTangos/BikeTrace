@@ -17,6 +17,7 @@ static sqlite3 *database = nil;
 -(id) initializeArray: (NSArray *) array {    
     if(self){
         self.rideList = [[NSMutableArray alloc] initWithArray:array];
+        self.networkRideList = [[NSMutableArray alloc] init];
         
     }
     

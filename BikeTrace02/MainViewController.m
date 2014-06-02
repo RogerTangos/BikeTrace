@@ -45,6 +45,7 @@
     //and initialize the RideDirectory
     self.rideDirectory = [[RideDirectory alloc] init];
     rideDirectory.rideList = [[NSMutableArray alloc] init];
+    rideDirectory.networkRideList = [[NSMutableArray alloc] init];
     
     //load the database
     [self.rideDirectory copyDatabaseIfNeeded];
