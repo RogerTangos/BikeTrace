@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BikeTrace02/MapViewController.m"
-            timestampString = "423431902.022982"
+            timestampString = "423436246.270321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "484"
-            endingLineNumber = "484"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
             landmarkName = "-turnOffTrackingAndRemoveCrumbs:"
             landmarkType = "5">
          </BreakpointContent>

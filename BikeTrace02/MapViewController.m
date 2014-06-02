@@ -429,7 +429,10 @@
 }
 
 - (IBAction)formButtonPressed:(id)sender {
-    
+    FormViewController *controller = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
+    controller.delegate = self;
+    controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentModalViewController:controller animated:YES];
 }
 
 - (void) turnOnAutolocate:(BOOL)autolocateSent{

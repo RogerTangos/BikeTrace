@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol FormViewControllerDelegate
+@end
+
 
 @interface FormViewController : UIViewController
+@property (weak, nonatomic) id <FormViewControllerDelegate> delegate;
 
 @end

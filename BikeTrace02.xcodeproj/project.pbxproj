@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		940137B81808D17E00C8BC7F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 940137B71808D17E00C8BC7F /* Default-568h@2x.png */; };
+		94030F12193D1B1F0085BCA1 /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94030F10193D1B1F0085BCA1 /* FormViewController.m */; };
+		94030F13193D1B1F0085BCA1 /* FormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94030F11193D1B1F0085BCA1 /* FormViewController.xib */; };
 		946A736C15CF3ABA00D3E1DF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946A736B15CF3ABA00D3E1DF /* CoreLocation.framework */; };
 		946A737015D07EBE00D3E1DF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946A736F15D07EBE00D3E1DF /* CoreMotion.framework */; };
 		946A737B15D0822700D3E1DF /* RideDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946A737A15D0822700D3E1DF /* RideDirectory.m */; };
@@ -64,6 +66,9 @@
 
 /* Begin PBXFileReference section */
 		940137B71808D17E00C8BC7F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		94030F0F193D1B1F0085BCA1 /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
+		94030F10193D1B1F0085BCA1 /* FormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormViewController.m; sourceTree = "<group>"; };
+		94030F11193D1B1F0085BCA1 /* FormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormViewController.xib; sourceTree = "<group>"; };
 		946A736B15CF3ABA00D3E1DF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		946A736F15D07EBE00D3E1DF /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		946A737915D0822700D3E1DF /* RideDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RideDirectory.h; sourceTree = "<group>"; };
@@ -157,6 +162,9 @@
 		94030F0E193D1A480085BCA1 /* FormVC */ = {
 			isa = PBXGroup;
 			children = (
+				94030F0F193D1B1F0085BCA1 /* FormViewController.h */,
+				94030F10193D1B1F0085BCA1 /* FormViewController.m */,
+				94030F11193D1B1F0085BCA1 /* FormViewController.xib */,
 			);
 			name = FormVC;
 			sourceTree = "<group>";
@@ -280,12 +288,12 @@
 		94E8CABE15C9CDF90040784E /* BikeTrace02 */ = {
 			isa = PBXGroup;
 			children = (
-				94030F0E193D1A480085BCA1 /* FormVC */,
 				94BD0344193A61A60056459B /* Restful */,
 				94E8CB2515CB402D0040784E /* OldRideTableVC */,
 				946A737815D0821A00D3E1DF /* Rides */,
 				94EA87E815D5F2A900D953BC /* DetailVC */,
 				94C3450815CC90FA001B9100 /* MapVC */,
+				94030F0E193D1A480085BCA1 /* FormVC */,
 				94C3451215CC9E6D001B9100 /* FlipsideVC */,
 				94E8CAF315C9CFA70040784E /* MainVC */,
 				94C3451715CDAEBD001B9100 /* Crumbs */,
@@ -438,6 +446,7 @@
 				9474DB9315D9B90500433215 /* biketrace.sqlite in Resources */,
 				946C38C715DD7A7F006385D0 /*  Geolocation.png in Resources */,
 				940137B81808D17E00C8BC7F /* Default-568h@2x.png in Resources */,
+				94030F13193D1B1F0085BCA1 /* FormViewController.xib in Resources */,
 				946C38C815DD7A7F006385D0 /* UIButtonBarAction.png in Resources */,
 				946C38C915DD7A7F006385D0 /* UIButtonBarPause.png in Resources */,
 				946C38CA15DD7A7F006385D0 /* UIButtonBarPlay.png in Resources */,
@@ -480,6 +489,7 @@
 			files = (
 				94BD034B193A62DC0056459B /* RestfulViewController.m in Sources */,
 				94E8CAC515C9CDF90040784E /* main.m in Sources */,
+				94030F12193D1B1F0085BCA1 /* FormViewController.m in Sources */,
 				94E8CAC915C9CDF90040784E /* AppDelegate.m in Sources */,
 				94E8CACC15C9CDF90040784E /* MainViewController.m in Sources */,
 				94E8CACF15C9CDF90040784E /* FlipsideViewController.m in Sources */,

@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import "FlipsideViewController.h"
+#import "FormViewController.h"
 #import "CrumbPath.h"
 #import "CrumbPathView.h"
 #import "Ride.h"
@@ -24,7 +25,7 @@
 #define kGOOGLE_API_KEY @"AIzaSyD_CI6YanVsgqjLz1kOxCad92A7b_mmKNA"
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
-@interface MapViewController : UIViewController <FlipsideViewControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIAlertViewDelegate> {
+@interface MapViewController : UIViewController <FlipsideViewControllerDelegate, FormViewControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, UIAlertViewDelegate> {
     
     //this is for location tracking
     CrumbPath *crumbs;
