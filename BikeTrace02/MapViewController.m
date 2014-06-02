@@ -23,6 +23,7 @@
 @synthesize autoLocate;
 @synthesize bikeRoute;
 @synthesize localCrumbOverlays;
+@synthesize networkCrumbOverlays;
 @synthesize plotMultipleOverlays;
 
 @synthesize startTrackingDate;
@@ -53,6 +54,7 @@
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
     self.localCrumbOverlays = [[NSMutableArray alloc] init];
+    self.networkCrumbOverlays = [[NSMutableArray alloc] init];
     
     mkMapView.showsUserLocation = YES;
     autoLocate = NO;
@@ -174,7 +176,13 @@
                 self.crumbs = [[CrumbPath alloc] initWithCenterCoordinate:dp.location.coordinate];
                 
             }
+//            crumbs are not being given coordinates of the network data points.
+            NSLog(@"%f", dp.location.coordinate.latitude);
+            NSLog(@"%f", dp.location.coordinate.longitude);
+            
             MKMapRect updateRect = [crumbs addCoordinate:dp.location.coordinate];
+            
+            
             if (!MKMapRectIsNull(updateRect)){
                 //make sure that we're not putting unnecessary points on the map.
                 //get the current map's zoom
@@ -245,11 +253,14 @@
     dataPointArray = [self.rideDirectory reverseEngineerPointDataToArr:dataPointArray];
     [self.rideDirectory createRidesFromNetworkReturnArray:dataPointArray];
     
+    [self overlayRides:self.rideDirectory.networkRideList andRelatedCrumbs:self.networkCrumbOverlays];
+//    [self overlayRides:self.rideDirectory.rideList andRelatedCrumbs:self.localCrumbOverlays];
+    
 }
 
 - (void) overlayNetworkRides{
     NSLog(@"overlayNetworkRides called");
-    NSArray * networkRideList = self.rideDirectory.networkRideList;
+//    NSArray * networkRideList = self.rideDirectory.networkRideList;
     
     
 }
@@ -431,6 +442,7 @@
     if(bikeRouteSent){
         self.bikeRoute = YES;
         [self overlayRides:self.rideDirectory.rideList andRelatedCrumbs:self.localCrumbOverlays];
+        
     } else {
         self.bikeRoute = NO;
         [self.mkMapView removeOverlays:localCrumbOverlays];
@@ -497,7 +509,7 @@
 //may return json/mutablearray in future
     NSLog(@"MapVCNetworking Called");
     [self gatherNetworkData];
-    [self overlayNetworkRides];
+//    [self overlayNetworkRides];
 }
 
 

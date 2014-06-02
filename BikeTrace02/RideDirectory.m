@@ -208,7 +208,7 @@ static sqlite3 *database = nil;
         
         
         double latitude = [point[4] doubleValue];
-        double longitude = [point[4] doubleValue];
+        double longitude = [point[5] doubleValue];
         double alt = [point[0] doubleValue];
         double horizontalAccuracy = [point[2] doubleValue];
         double verticalAccuracy = [point[9] doubleValue];
@@ -219,7 +219,7 @@ static sqlite3 *database = nil;
         
         CLLocation * pointLocation = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitude, longitude) altitude:alt horizontalAccuracy:horizontalAccuracy verticalAccuracy:verticalAccuracy course:course speed:speed timestamp:timestamp];
         
-        NSLog(@"made it past making a pointlocation");
+//        NSLog(@"made it past making a pointlocation");
 
         [currentRide newDataPoint:pointLocation andDeviceMotion:nil];
     }
