@@ -27,7 +27,7 @@
 -(id) searchWithRange:(NSString *)searchTerm;
 
 // network and json management
-- (NSData *) loadNetworkRides:(CLLocation *)currentLocation;
+- (void) loadNetworkRides:(CLLocation *)currentLocation;
 - (NSArray *) arrayFromData:(NSData *) data;
 - (NSArray *) reverseEngineerPointDataToArr:(NSArray *)oldArr;
 //- (void) populateNetworkRidesFromArrayOfPoints:(NSArray *)oldArr;

@@ -77,6 +77,7 @@
         NSLog(@"turn button on");
         [self.delegate callMapVcNetworking:YES];
     } else {
+        NSLog(@"turn button off");
         [self.delegate callMapVcNetworking:NO];
     }
 }

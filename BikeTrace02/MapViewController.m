@@ -169,6 +169,8 @@
     
     for (Ride * r in rideArr) {
         crumbs = nil;
+        
+        // this is used for retrieving data points of local rides. It has no effect on networked data.
         [r getInitialDataToDisplay:[r getDBPath]];
         
         for(DataPoint * dp in r.dataPointList){
@@ -176,10 +178,6 @@
                 self.crumbs = [[CrumbPath alloc] initWithCenterCoordinate:dp.location.coordinate];
                 
             }
-//            crumbs are not being given coordinates of the network data points.
-            NSLog(@"%f", dp.location.coordinate.latitude);
-            NSLog(@"%f", dp.location.coordinate.longitude);
-            
             MKMapRect updateRect = [crumbs addCoordinate:dp.location.coordinate];
             
             
@@ -245,24 +243,15 @@
 - (void) gatherNetworkData{
     NSLog(@"gatherNetworkData called");
     
+    // if the location was not found
+    if (![CLLocationManager locationServicesEnabled]){
+        NSLog(@"No location was found, so not attempting to download data");
+        return;
+    }
+    
     // get the data from the network, reverse engineer it, and populate the rideList
-    NSData * data = [[NSData alloc]init];
-    data = [self.rideDirectory loadNetworkRides:self.mkMapView.userLocation.location];
-    NSArray * dataPointArray = [[NSArray alloc]init];
-    dataPointArray = [self.rideDirectory arrayFromData:data];
-    dataPointArray = [self.rideDirectory reverseEngineerPointDataToArr:dataPointArray];
-    [self.rideDirectory createRidesFromNetworkReturnArray:dataPointArray];
-    
+    [self.rideDirectory loadNetworkRides:self.mkMapView.userLocation.location];
     [self overlayRides:self.rideDirectory.networkRideList andRelatedCrumbs:self.networkCrumbOverlays];
-//    [self overlayRides:self.rideDirectory.rideList andRelatedCrumbs:self.localCrumbOverlays];
-    
-}
-
-- (void) overlayNetworkRides{
-    NSLog(@"overlayNetworkRides called");
-//    NSArray * networkRideList = self.rideDirectory.networkRideList;
-    
-    
 }
 
 #pragma mark - Search Bar
@@ -410,6 +399,16 @@
 
 #pragma mark - Flipside View
 
+// network button pressed
+- (void)callMapVcNetworking:(BOOL)network{
+    NSLog(@"MapVCNetworking Called");
+    if (network){
+        [self gatherNetworkData];
+    } else {
+        [self.mkMapView removeOverlays:networkCrumbOverlays];
+    }
+}
+
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
 {
     [self dismissModalViewControllerAnimated:YES];
@@ -501,15 +500,6 @@
         backgroundUpdate = NO;
 //        NSLog(@"backgroundUpdate = NO in MVC");
     }
-}
-
-
-# pragma mark - RESTful Functions
-- (void)callMapVcNetworking:(BOOL)network{
-//may return json/mutablearray in future
-    NSLog(@"MapVCNetworking Called");
-    [self gatherNetworkData];
-//    [self overlayNetworkRides];
 }
 
 

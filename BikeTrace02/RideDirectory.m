@@ -76,7 +76,7 @@ static sqlite3 *database = nil;
 #pragma mark - Network
 
 
--(NSData *) loadNetworkRides:(CLLocation *) currentLocation{
+-(void) loadNetworkRides:(CLLocation *) currentLocation{
     
     NSLog(@"loadNearbyRides in RideDirectory.m called");
     
@@ -106,8 +106,9 @@ static sqlite3 *database = nil;
     // wish this were asynch. Had torouble with method passing and had to rever to sync 2014-06-01 ARC
     data = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&response error:&error];
     
-    return data;
- 
+    NSArray * rideArray = [self arrayFromData:data];
+    
+    [self createRidesFromNetworkReturnArray:rideArray];
 }
 
 -(NSArray *)arrayFromData:(NSData *)data {
@@ -125,6 +126,7 @@ static sqlite3 *database = nil;
 //        NSLog(@"json serialization error: %@",error.description);
 //    }
     
+    parsedData = [self reverseEngineerPointDataToArr:parsedData];
     return parsedData;
 }
 
@@ -173,11 +175,15 @@ static sqlite3 *database = nil;
 }
 
 -(void) createRidesFromNetworkReturnArray:(NSArray *)arr{
-
+    // handle empty arrays
+    if (!arr || !arr.count){return;}
+    
     // add the first ride to the directory
     NSString *currentRideId = [[NSString alloc] init];
 //    NSLog(@"%@", arr[0]);
 //    NSLog(@"%@", arr[0][6]);
+    
+    
     
     currentRideId = arr[0][6];
     Ride *currentRide = [[Ride alloc] init];
