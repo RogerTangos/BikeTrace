@@ -52,6 +52,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
+    self.crumbOverlays = [[NSMutableArray alloc] init];
     
     mkMapView.showsUserLocation = YES;
     autoLocate = NO;
@@ -160,7 +161,7 @@
 # pragma mark - overlayAllRides (MuaHaHa!)
 
 - (void) overlayAllRides{
-    crumbOverlays = [[NSMutableArray alloc] init];
+    
     plotMultipleOverlays = YES;
     
     for (Ride * r in self.rideDirectory.rideList) {
@@ -234,17 +235,15 @@
 - (void) overlayNetworkrides{
     NSLog(@"OverlayNetworkRides called");
     
+    // get the data from the network, reverse engineer it, and populate the rideList
     NSData * data = [[NSData alloc]init];
     data = [self.rideDirectory loadNetworkRides:self.mkMapView.userLocation.location];
-    
     NSArray * dataPointArray = [[NSArray alloc]init];
-    dataPointArray = [self.rideDirectory jsonFromData:data];
+    dataPointArray = [self.rideDirectory arrayFromData:data];
+    dataPointArray = [self.rideDirectory reverseEngineerPointDataToArr:dataPointArray];
+    [self.rideDirectory createRidesFromNetworkReturnArray:dataPointArray];
     
-    NSLog(@"%@", dataPointArray);
-    
-//    make rides from list
-//    make data points for each ride
-    
+    // plot the rides
 
     
 }

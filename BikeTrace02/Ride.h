@@ -18,7 +18,7 @@
     NSString * title;
     NSMutableArray * dataPointList;
     int idNum;
-    NSURLConnection *foo;
+//    NSURLConnection *foo;
 }
 
 

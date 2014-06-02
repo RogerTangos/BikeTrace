@@ -64,8 +64,6 @@ static sqlite3 *database = nil;
     return r;
 }
 
-
-
 -(id) returnAllRides {
     return rideList;
 }
@@ -111,19 +109,119 @@ static sqlite3 *database = nil;
  
 }
 
--(NSArray *)jsonFromData:(NSData *)data {
+-(NSArray *)arrayFromData:(NSData *)data {
     // encode as string for debugging
     //    NSString *responseText = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
     //    NSString *newLineStr = @"\n";
     //    responseText = [responseText stringByReplacingOccurrencesOfString:@"<br />" withString:newLineStr];
-
     
     NSError * error = [[NSError alloc] init];
-    NSArray * parsedData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSArray * parsedData = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     
 //    NSLog(@"%@", parsedData);
     
+//    if(error) {
+//        NSLog(@"json serialization error: %@",error.description);
+//    }
+    
     return parsedData;
+}
+
+-(NSArray *) reverseEngineerPointDataToArr:(NSArray*)oldArr{
+//    have to do this using NSString because navigating JSON using static typing is proving too time consuming. - ARC 2014-06-01
+    
+    NSMutableArray * pointArray = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary * currentDataPoint in oldArr){
+        
+//        this is ridiculously backwards
+        NSString * dataString = [NSString stringWithFormat:@"%@", currentDataPoint];
+        NSLog(@"%i",[dataString length]);
+        NSLog(@"%@", dataString);
+        
+        
+        // use regex to match...
+        NSError *error = [[NSError alloc] init];
+        NSRange range = NSMakeRange(0, [dataString length]);
+        NSString * pattern = @"(\\-?[0-9]+\\.?[0-9]*)";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:&error];
+
+         // find matches and add to result array
+        NSArray *matches = [regex matchesInString:dataString options:0 range:range];
+        [pointArray addObject:[self reverseRegex:matches andString:dataString]];
+    }
+    
+    return pointArray;
+}
+
+-(NSArray *) reverseRegex:(NSArray *)matches andString:(NSString *)str{
+        
+        NSMutableArray *point = [NSMutableArray array];
+        for (NSTextCheckingResult *match in matches) {
+            NSRange matchRange = [match range];
+            NSString *numString = [str substringWithRange:matchRange];
+            [point addObject:numString];
+        }
+    
+    // [0]alt, [1]course, [2]horizontalAccuracy, [3]id, [4]latitude, [5]longitude,
+    // [6]ridelist_id, [7]speed, [8]timestamp, [9]verticalAccuracy
+    //  points are ordered by ridelist_id
+        return point;
+}
+
+-(void) createRidesFromNetworkReturnArray:(NSArray *)arr{
+
+    // add the first ride to the directory
+    NSString *currentRideId = [[NSString alloc] init];
+//    NSLog(@"%@", arr[0]);
+//    NSLog(@"%@", arr[0][6]);
+    
+    currentRideId = arr[0][6];
+    Ride *currentRide = [[Ride alloc] init];
+    currentRide = [self newRideWithoutAdd];
+    [self.networkRideList addObject:currentRide];
+    NSLog(@"New ride: %@", currentRideId);
+    
+    for (NSArray * point in arr){
+        // add a new ride and start populating it
+        if (![point[6] isEqualToString:currentRideId]){
+            currentRideId = point[6];
+            currentRide = [self newRideWithoutAdd];
+            [self.networkRideList addObject:currentRide];
+            NSLog(@"New ride: %@", currentRideId);
+        }
+        
+        // turn array into cllocation, device motion variables...
+//        NSString * altStr = point[0];
+//        NSString * courseStr = point[1];
+//        NSString * horizontalAccuracyStr = point[2];
+//        // NSString * idStr = point[3];
+//        NSString * latitudeStr = point[4];
+//        NSString *  = point[5];
+////        NSString * ridelist_idStr = point[6];
+//        NSString * speedStr = point[7];
+//        NSString * timestampStr = point[8];
+//        NSString * verticalAccuracyStr = point[9];
+        
+        
+        double latitude = [point[4] doubleValue];
+        double longitude = [point[4] doubleValue];
+        double alt = [point[0] doubleValue];
+        double horizontalAccuracy = [point[2] doubleValue];
+        double verticalAccuracy = [point[9] doubleValue];
+        double course = [point[1] doubleValue];
+        double speed = [point[7] doubleValue];
+        double timestampDouble = [point[8] doubleValue];
+        NSDate * timestamp = [[NSDate alloc] initWithTimeIntervalSince1970:timestampDouble];
+        
+        CLLocation * pointLocation = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitude, longitude) altitude:alt horizontalAccuracy:horizontalAccuracy verticalAccuracy:verticalAccuracy course:course speed:speed timestamp:timestamp];
+        
+        NSLog(@"made it past making a pointlocation");
+
+        [currentRide newDataPoint:pointLocation andDeviceMotion:nil];
+    }
 }
 
 
