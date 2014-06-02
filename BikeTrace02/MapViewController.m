@@ -428,6 +428,10 @@
     controller.autoLocateButton.on = autoLocate;
 }
 
+- (IBAction)formButtonPressed:(id)sender {
+    
+}
+
 - (void) turnOnAutolocate:(BOOL)autolocateSent{
     NSLog(@"turnOnAutoLocate in MapViewController!");
     if(autolocateSent){

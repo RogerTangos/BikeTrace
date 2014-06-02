@@ -62,6 +62,8 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mkMapView;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
+@property (strong, nonatomic) IBOutlet UIButton *formButton;
+
 @property BOOL autoLocateExecuted;
 //autoLocateExecuted is just for the very first autolocation when location updates.
 @property BOOL autoLocate;
@@ -85,6 +87,8 @@
 
 
 - (IBAction)infoButtonPressed:(id)sender;
+- (IBAction)formButtonPressed:(id)sender;
+
 - (void) findCurrentLocation;
 - (void) turnOffTrackingAndRemoveCrumbs:(double)seconds;
 - (void) turnOnTracking;
