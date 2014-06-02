@@ -431,9 +431,19 @@
 - (IBAction)formButtonPressed:(id)sender {
     FormViewController *controller = [[FormViewController alloc] initWithNibName:@"FormViewController" bundle:nil];
     controller.delegate = self;
-    controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+     controller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentModalViewController:controller animated:YES];
 }
+
+- (void)formViewControllerDidFinish:(FlipsideViewController *)controller
+{
+    [self dismissModalViewControllerAnimated:YES];
+    CGRect viewRect = {0, 0, 320, 416};
+    self.view.frame =  viewRect;
+    
+}
+
+
 
 - (void) turnOnAutolocate:(BOOL)autolocateSent{
     NSLog(@"turnOnAutoLocate in MapViewController!");

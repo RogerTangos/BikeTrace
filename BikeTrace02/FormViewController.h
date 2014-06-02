@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class FormViewController;
+
 @protocol FormViewControllerDelegate
+- (void)formViewControllerDidFinish:(FormViewController *)controller;
 @end
 
 
 @interface FormViewController : UIViewController
 @property (weak, nonatomic) id <FormViewControllerDelegate> delegate;
+
+- (IBAction)done:(id)sender;
 
 @end

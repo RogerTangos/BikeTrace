@@ -36,4 +36,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)done:(id)sender
+{
+    [self.delegate formViewControllerDidFinish:self];
+}
 @end
