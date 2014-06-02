@@ -27,7 +27,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.latitudeLabel.delegate = self;
+    self.longitudeLabel.delegate = self;
+    self.degreeLabel.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    [self.latitudeLabel resignFirstResponder];
+    [self.longitudeLabel resignFirstResponder];
+    [self.degreeLabel resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,11 +55,23 @@
     [self.delegate formViewControllerDidFinish:self];
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 - (IBAction)submit:(id)sender {
     NSLog(@"submit called");
-    NSString * latitude = @"37.7014";
-    NSString *longitude = @"-122.471";
-    NSString *range = @".125";
+    
+    [self dismissKeyboard];
+    
+    
+    NSString * latitude = [self.latitudeLabel text];
+    NSString *longitude = [self.longitudeLabel text];
+    NSString *range = [self.degreeLabel text];
     
      NSString *queryString = @"http://ec2-107-22-150-242.compute-1.amazonaws.com/retrieveNearby.php";
     NSMutableURLRequest *theRequest=[NSMutableURLRequest

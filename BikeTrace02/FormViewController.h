@@ -14,7 +14,7 @@
 @end
 
 
-@interface FormViewController : UIViewController
+@interface FormViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) id <FormViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *longitudeLabel;
