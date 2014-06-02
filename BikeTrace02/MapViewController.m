@@ -22,7 +22,7 @@
 @synthesize autoLocateExecuted;
 @synthesize autoLocate;
 @synthesize bikeRoute;
-@synthesize crumbOverlays;
+@synthesize localCrumbOverlays;
 @synthesize plotMultipleOverlays;
 
 @synthesize startTrackingDate;
@@ -52,7 +52,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
-    self.crumbOverlays = [[NSMutableArray alloc] init];
+    self.localCrumbOverlays = [[NSMutableArray alloc] init];
     
     mkMapView.showsUserLocation = YES;
     autoLocate = NO;
@@ -158,13 +158,14 @@
 }
 
 
-# pragma mark - overlayAllRides
+# pragma mark - overlay Rides
 
-- (void) overlayAllRides{
+
+- (void) overlayRides:(NSArray *) rideArr andRelatedCrumbs:(NSMutableArray *)crumbOverlay{
     
     plotMultipleOverlays = YES;
     
-    for (Ride * r in self.rideDirectory.rideList) {
+    for (Ride * r in rideArr) {
         crumbs = nil;
         [r getInitialDataToDisplay:[r getDBPath]];
         
@@ -191,7 +192,7 @@
         [self.mkMapView addOverlay:crumbs];
         
         //add the ride to a directory, for removal later.
-        [self.crumbOverlays addObject:crumbs];
+        [crumbOverlay addObject:crumbs];
     }
     
     //by adding this as no, viewForOverlays will be able to record.  While it is set to yes, viewForOverlays can only plot the overlays that overAllRides sends.
@@ -429,10 +430,10 @@
 - (void) turnOnBikeRoute:(BOOL)bikeRouteSent{
     if(bikeRouteSent){
         self.bikeRoute = YES;
-        [self overlayAllRides];
+        [self overlayRides:self.rideDirectory.rideList andRelatedCrumbs:self.localCrumbOverlays];
     } else {
         self.bikeRoute = NO;
-        [self.mkMapView removeOverlays:crumbOverlays];
+        [self.mkMapView removeOverlays:localCrumbOverlays];
     }
 }
 

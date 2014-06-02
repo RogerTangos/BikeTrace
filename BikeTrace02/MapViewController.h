@@ -41,7 +41,7 @@
     BOOL backgroundUpdate;
     
     //crumbOverlays are an array of all the rides being displayed when you view all rides. I need to add them to a list, so that I can removeOverlays: later.
-    NSMutableArray * crumbOverlays;
+    NSMutableArray * localCrumbOverlays;
     
     
     CMMotionManager * motionManager;
@@ -70,7 +70,7 @@
 @property BOOL bikeRoute;
 @property (nonatomic,retain) NSDate * startTrackingDate;
 
-@property (nonatomic, retain) NSMutableArray * crumbOverlays;
+@property (nonatomic, retain) NSMutableArray * localCrumbOverlays;
 @property BOOL plotMultipleOverlays;
 
 @property (nonatomic, retain) CMMotionManager *motionManager;
