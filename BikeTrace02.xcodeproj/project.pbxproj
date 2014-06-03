@@ -24,9 +24,6 @@
 		946C38DB15DF4025006385D0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 946C38DA15DF4025006385D0 /* Icon.png */; };
 		9474DB9015D9AB7200433215 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9474DB8F15D9AB7100433215 /* libsqlite3.0.dylib */; };
 		9474DB9315D9B90500433215 /* biketrace.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9474DB9215D9B90500433215 /* biketrace.sqlite */; };
-		94BD034B193A62DC0056459B /* RestfulViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BD0349193A62DC0056459B /* RestfulViewController.m */; };
-		94BD034C193A62DC0056459B /* RestfulViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94BD034A193A62DC0056459B /* RestfulViewController.xib */; };
-		94BD034F193A6D820056459B /* RestFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BD034E193A6D820056459B /* RestFunctions.m */; };
 		94C3450C15CC9109001B9100 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3450A15CC9109001B9100 /* MapViewController.m */; };
 		94C3450D15CC9109001B9100 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94C3450B15CC9109001B9100 /* MapViewController.xib */; };
 		94C3451A15CDAED7001B9100 /* CrumbPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C3451915CDAED7001B9100 /* CrumbPath.m */; };
@@ -86,11 +83,6 @@
 		946C38DA15DF4025006385D0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9474DB8F15D9AB7100433215 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		9474DB9215D9B90500433215 /* biketrace.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = biketrace.sqlite; sourceTree = "<group>"; };
-		94BD0348193A62DC0056459B /* RestfulViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestfulViewController.h; sourceTree = "<group>"; };
-		94BD0349193A62DC0056459B /* RestfulViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestfulViewController.m; sourceTree = "<group>"; };
-		94BD034A193A62DC0056459B /* RestfulViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestfulViewController.xib; sourceTree = "<group>"; };
-		94BD034D193A6D820056459B /* RestFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestFunctions.h; sourceTree = "<group>"; };
-		94BD034E193A6D820056459B /* RestFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestFunctions.m; sourceTree = "<group>"; };
 		94C3450915CC9109001B9100 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		94C3450A15CC9109001B9100 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		94C3450B15CC9109001B9100 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -204,18 +196,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		94BD0344193A61A60056459B /* Restful */ = {
-			isa = PBXGroup;
-			children = (
-				94BD0348193A62DC0056459B /* RestfulViewController.h */,
-				94BD0349193A62DC0056459B /* RestfulViewController.m */,
-				94BD034A193A62DC0056459B /* RestfulViewController.xib */,
-				94BD034D193A6D820056459B /* RestFunctions.h */,
-				94BD034E193A6D820056459B /* RestFunctions.m */,
-			);
-			name = Restful;
-			sourceTree = "<group>";
-		};
 		94C3450815CC90FA001B9100 /* MapVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +268,6 @@
 		94E8CABE15C9CDF90040784E /* BikeTrace02 */ = {
 			isa = PBXGroup;
 			children = (
-				94BD0344193A61A60056459B /* Restful */,
 				94E8CB2515CB402D0040784E /* OldRideTableVC */,
 				946A737815D0821A00D3E1DF /* Rides */,
 				94EA87E815D5F2A900D953BC /* DetailVC */,
@@ -436,7 +415,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94BD034C193A62DC0056459B /* RestfulViewController.xib in Resources */,
 				94E8CAC315C9CDF90040784E /* InfoPlist.strings in Resources */,
 				94E8CAD215C9CDF90040784E /* MainViewController.xib in Resources */,
 				94E8CAD515C9CDF90040784E /* FlipsideViewController.xib in Resources */,
@@ -487,7 +465,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94BD034B193A62DC0056459B /* RestfulViewController.m in Sources */,
 				94E8CAC515C9CDF90040784E /* main.m in Sources */,
 				94030F12193D1B1F0085BCA1 /* FormViewController.m in Sources */,
 				94E8CAC915C9CDF90040784E /* AppDelegate.m in Sources */,
@@ -496,7 +473,6 @@
 				94E8CB2E15CB407F0040784E /* OldRideTableViewController.m in Sources */,
 				94C3450C15CC9109001B9100 /* MapViewController.m in Sources */,
 				94C3451A15CDAED7001B9100 /* CrumbPath.m in Sources */,
-				94BD034F193A6D820056459B /* RestFunctions.m in Sources */,
 				94C3452415CF1DC1001B9100 /* CrumbPathView.m in Sources */,
 				946A737B15D0822700D3E1DF /* RideDirectory.m in Sources */,
 				946A737E15D0822F00D3E1DF /* Ride.m in Sources */,

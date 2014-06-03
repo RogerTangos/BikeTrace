@@ -32,7 +32,7 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="37.6205" borderStyle="roundedRect" placeholder="latitude" minimumFontSize="17" clearButtonMode="whileEditing" id="nkT-Aa-San">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="38.00" borderStyle="roundedRect" placeholder="latitude" minimumFontSize="17" clearButtonMode="whileEditing" id="nkT-Aa-San">
                     <rect key="frame" x="20" y="58" width="280" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
