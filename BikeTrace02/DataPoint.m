@@ -10,6 +10,8 @@
 
 @implementation DataPoint
 @synthesize location;
+@synthesize latitudeString;
+@synthesize longitudeString;
 @synthesize motion;
 @synthesize date;
 
@@ -18,6 +20,8 @@
     self.location = dLocation;
     self.motion = dMotion;
     self.date = [NSDate date];
+    self.latitudeString = [[NSString alloc] init];
+    self.longitudeString = [[NSString alloc] init];
     
     return self;
 }
@@ -46,6 +50,12 @@
     [dictionary setValue:courseString forKey:@"course"];
     
     return dictionary;
+}
+
+- (void) setLatLongStrings{
+//    doubles don't have enough precision. To use the JSON serializer, we need to cast to string.
+    self.latitudeString = [NSString stringWithFormat:@"%.9lf", self.location.coordinate.latitude];
+    self.longitudeString = [NSString stringWithFormat:@"%.9lf", self.location.coordinate.longitude];
 }
 
 

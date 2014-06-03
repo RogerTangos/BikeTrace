@@ -183,12 +183,25 @@ static sqlite3 *database = nil;
     // create a list of data points with dictionary objects and string keys for sending to the server.
     NSMutableArray * dataListForPost = [[NSMutableArray alloc] init];
     for (DataPoint * dp in dataPointList){
+        
+        // set strings for lat and long, to preserve significant digits of coordinates when sending to server
+        [dp setLatLongStrings];
+        
         [dataListForPost addObject:[dp toNSDictionaryWithStrings]];
+//        NSLog(@"%f", dp.location.coordinate.latitude);
+//        NSLog(@"%f", dp.location.coordinate.longitude);
     }
     
     NSError *error;
+    
+    NSLog(@"%@", dataListForPost);
     NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dataListForPost
                                                        options:NSJSONWritingPrettyPrinted error:&error];
+    NSLog(@"-------");
+    NSString *someString = [NSString stringWithFormat:@"%@", jsonData];
+    NSLog(@"%@", someString);
+    
+    
     [theRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest setHTTPBody:jsonData];
