@@ -2,3 +2,4 @@
 *.sqlite
 Assignment06-1
 Assignment06-1/*
+*xcuserdatad/*
