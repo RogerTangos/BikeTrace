@@ -15,7 +15,6 @@
 #import "CrumbPathView.h"
 #import "Ride.h"
 #import "DataPoint.h"
-#import "DeviceMotionQueue.h"
 #import "RideDirectory.h"
 #import "SearchResultDirectory.h"
 

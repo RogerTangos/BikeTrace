@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "NewRideViewController.h"
 #import "MapViewController.h"
 #import <UIKit/UIKit.h>
 
